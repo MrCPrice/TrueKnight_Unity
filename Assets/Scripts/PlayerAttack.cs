@@ -2,44 +2,41 @@ using UnityEngine;
 
 public class PlayerAttack : AttackSystem
 {
-    private bool inRange;
+    private bool buttonPressed;
     private float lastUsedAttack;
 
     protected override void Awake()
     {
         base.Awake();
-        tagTarget = "Enemy";
     }
 
-    protected override void TargetInRangeHandler(bool inRange)
+    protected override void TargetInRangeHandler(bool inRange, GameObject incoming)
     {
-        this.inRange = inRange;
-        Debug.Log("in rangehandler is " + inRange);
-    }
-
-    void FixedUpdate()
-    {
-        //Debug.Log("in range is " + inRange);
-        if(Input.GetKey("x"))
-        {
-            if(inRange == true && Time.time > lastUsedAttack + attackCoolDown)
+        if(buttonPressed == true && inRange == true && Time.time > lastUsedAttack + attackCoolDown)
             {
-                var taggedEnemies = GameObject.FindGameObjectsWithTag(tagTarget);
-
-                foreach(var enemy in taggedEnemies)
+                if(incoming == null)
                 {
-                    if(target == null)
-                    {
-                     target = enemy;
-                    }
+                    var taggedEnemies = GameObject.FindGameObjectsWithTag(tagTarget);
 
-                    float closestAttackDist = transform.position.magnitude - target.transform.position.magnitude;
-                    float enemyAttackDist = transform.position.magnitude - enemy.transform.position.magnitude;
-
-                    if(enemyAttackDist > closestAttackDist)
+                    foreach(var enemy in taggedEnemies)
                     {
+                        if(target == null)
+                        {
                         target = enemy;
+                        }
+
+                        float closestAttackDist = transform.position.magnitude - target.transform.position.magnitude;
+                        float enemyAttackDist = transform.position.magnitude - enemy.transform.position.magnitude;
+
+                        if(enemyAttackDist > closestAttackDist)
+                        {
+                            target = enemy;
+                        }
                     }
+                }
+                else
+                {
+                    target = incoming;
                 }
 
                 if(target != null)
@@ -49,6 +46,18 @@ public class PlayerAttack : AttackSystem
 
                 lastUsedAttack = Time.time;
             }
+    }
+
+    void FixedUpdate()
+    {
+        //Debug.Log("in range is " + inRange);
+        if(Input.GetKey("x"))
+        {
+            buttonPressed = true;
+        }
+        else
+        {
+            buttonPressed = false;
         }
     }
 }

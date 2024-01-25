@@ -239,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPower: 1
   attackCoolDown: 1
+  tagTarget: Player
   isCooling: 0
   bossTimeForCoolDown: 15
   enemyBullet: {fileID: 2098760827593618496, guid: 925c90fd3bea40346905e0f9e0da11c7, type: 3}

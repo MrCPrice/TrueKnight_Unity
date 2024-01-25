@@ -8,18 +8,17 @@ public class EnemyAttack : AttackSystem
     protected override void Awake()
     {
         base.Awake();
-        tagTarget = "Player";
         target = GameObject.FindWithTag(tagTarget);
     }
 
-    protected override void TargetInRangeHandler(bool inRange)
+    protected override void TargetInRangeHandler(bool inRange, GameObject incoming)
     {
-        BasicAttackPlayer(inRange, isCooling);
+        BasicAttackPlayer(inRange, isCooling, incoming);
     }
 
-    public void BasicAttackPlayer(bool inRange, bool amOnCoolDown)
+    public void BasicAttackPlayer(bool inRange, bool amOnCoolDown, GameObject incoming)
     {
-        if(inRange == true && amOnCoolDown == false)
+        if(inRange == true && amOnCoolDown == false && incoming == target)
         {
             target.GetComponent<HealthSystem>().TakeDamage(attackPower);
             StartCoroutine(AttackOnCoolDown(amOnCoolDown));

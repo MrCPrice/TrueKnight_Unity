@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPower: 3
   attackCoolDown: 2
+  tagTarget: Enemy
 --- !u!1 &4177999581547831572
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,4 +292,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
-  gameSupervisor: {fileID: 0}

@@ -206,4 +206,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPower: 1
   attackCoolDown: 1
+  tagTarget: Player
   isCooling: 0

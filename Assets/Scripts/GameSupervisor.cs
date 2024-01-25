@@ -25,10 +25,8 @@ public class GameSupervisor : MonoBehaviour
 
         foreach(var enemy in taggedEnemies)
         {
-            Debug.Log(enemy.name);
             count++;
         }
-        Debug.Log(count);
     }
 
     public void KillTheEnemy()

@@ -6,9 +6,9 @@ public class AttackSystem : MonoBehaviour
     public int attackPower = 1;
     public float attackCoolDown = 3f;
     protected GameObject target;
-    protected string tagTarget;
+    public string tagTarget;
 
-    protected delegate void TargetInRange(bool isInRange);
+    protected delegate void TargetInRange(bool isInRange, GameObject incoming);
     protected TargetInRange targetInRange;
 
     protected virtual void Awake()
@@ -16,14 +16,13 @@ public class AttackSystem : MonoBehaviour
         targetInRange += TargetInRangeHandler;
     }
 
-    protected virtual void TargetInRangeHandler(bool inRange){}
+    protected virtual void TargetInRangeHandler(bool inRange, GameObject incoming){}
 
     void OnTriggerStay(Collider collider)
     {
         if(collider.tag == tagTarget)
         {
-            Debug.Log("Staying " + gameObject.name);
-            targetInRange?.Invoke(true);
+            targetInRange?.Invoke(true, collider.gameObject);
         }
     }
 
@@ -31,15 +30,13 @@ public class AttackSystem : MonoBehaviour
     {
         if(collider.tag == tagTarget)
         {
-            Debug.Log("Exiting " + gameObject.name);
-            targetInRange?.Invoke(false);
+            targetInRange?.Invoke(false, collider.gameObject);
         }
     }
 
     void OnDestroy()
     {
-        Debug.Log("Destroy " + gameObject.name);
-        targetInRange?.Invoke(false);
+        targetInRange?.Invoke(false, null);
         targetInRange -= TargetInRangeHandler;
     }
 
