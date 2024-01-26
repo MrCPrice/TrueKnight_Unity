@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7681777900257592867}
   - component: {fileID: 8068095926838838261}
   - component: {fileID: 462679241266063201}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4177999580854065105}
   - component: {fileID: 4177999580854065102}
   - component: {fileID: 4177999580854065103}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 6368206061960580608}
   - component: {fileID: 4450299674095809803}
   - component: {fileID: 5328396070156616334}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -292,3 +292,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
+  HealthBar: {fileID: 0}

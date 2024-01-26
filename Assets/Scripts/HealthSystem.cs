@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
 {
     public int hp = 10;
     public delegate void OnObejctDeath(GameObject character);
     public OnObejctDeath onObejctDeath;
+    public Slider HealthBar = null;
 
     void Awake()
     {
@@ -19,6 +21,11 @@ public class HealthSystem : MonoBehaviour
         {
             onObejctDeath?.Invoke(gameObject);
             onObejctDeath = null;
+        }
+
+        if(HealthBar != null)
+        {
+            HealthBar.value = hp;
         }
     }
 

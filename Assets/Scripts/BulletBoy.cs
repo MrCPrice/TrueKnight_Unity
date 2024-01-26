@@ -16,11 +16,17 @@ public class BulletBoy : MonoBehaviour
         StartCoroutine(SelfDestruct());
     }
 
+        void Update()
+    {
+        GoKillPlayer();
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.tag == "Player" || collision.collider.tag == "Enemy")
         {
             collision.collider.GetComponent<HealthSystem>().TakeDamage(dmg);
+            Destroy(gameObject);
         }
     }
 
@@ -30,11 +36,6 @@ public class BulletBoy : MonoBehaviour
         {
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, bulletSpeed * Time.deltaTime);
         }
-    }
-
-    void Update()
-    {
-        GoKillPlayer();
     }
 
     private IEnumerator SelfDestruct()
