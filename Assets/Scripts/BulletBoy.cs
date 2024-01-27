@@ -7,7 +7,7 @@ public class BulletBoy : MonoBehaviour
     private string tagTarget = "Player";
     public float bulletSpeed = 0.5f;
     public int dmg = 1;
-    public float lifeTime = 6f;
+    public float lifeTime = 10f;
     private GameObject target;
 
     void Awake()

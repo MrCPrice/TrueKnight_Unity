@@ -14,6 +14,7 @@ public class HUDManger : MonoBehaviour
     public void Awake()
     {
         AddToScore += ChangeScore;
+        ChangeScore(0);
     }
 
     public void FixedUpdate()

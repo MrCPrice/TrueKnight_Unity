@@ -146,6 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
+  HealthBar: {fileID: 0}
+  Coin: {fileID: 2265877254563070136, guid: 02583e8c4ca07fc4cad9f55eae4eb30b, type: 3}
 --- !u!1 &8099810117335143989
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,6 +207,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPower: 1
-  attackCoolDown: 1
+  attackCoolDown: 8
   tagTarget: Player
   isCooling: 0

@@ -5,6 +5,7 @@ public class GameSupervisor : MonoBehaviour
 {
     public static GameSupervisor Instance;
     public delegate void EnemyKilled();
+    public SpawnEnemies spawnEnemies;
     public EnemyKilled enemyKilled;
     private int count;
 

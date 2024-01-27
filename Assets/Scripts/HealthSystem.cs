@@ -8,6 +8,7 @@ public class HealthSystem : MonoBehaviour
     public delegate void OnObejctDeath(GameObject character);
     public OnObejctDeath onObejctDeath;
     public Slider HealthBar = null;
+    public GameObject Coin;
 
     void Awake()
     {
@@ -46,6 +47,8 @@ public class HealthSystem : MonoBehaviour
                     break;
 
                 case "Enemy":
+                    DropCoins(character);
+                    GameSupervisor.Instance.spawnEnemies.OnEnemyDead(character);
                     GameSupervisor.Instance.enemyKilled?.Invoke();
                     Destroy(character);
                     break;
@@ -59,5 +62,15 @@ public class HealthSystem : MonoBehaviour
     void OnDestroy()
     {
         onObejctDeath -= DeathHandler;
+    }
+
+    private void DropCoins(GameObject character)
+    {
+        int amountDrop = Random.Range(3,9);
+
+        for(int i=0;i<amountDrop;i++)
+        {
+            Instantiate(Coin, character.transform.position, Quaternion.identity);
+        }
     }
 }
