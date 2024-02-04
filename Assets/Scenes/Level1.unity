@@ -1239,6 +1239,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8099810118743376691, guid: f696e3c2ca94abf419e5f75e72922021, type: 3}
   m_PrefabInstance: {fileID: 1797778047}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &594847744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 985221757015025901, guid: b89cd29d3b49bae4ba1e2f22d83614de, type: 3}
+  m_PrefabInstance: {fileID: 333292256}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed1aca811f62ddf4180bbaa3f69ef5cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &741976058
 GameObject:
   m_ObjectHideFlags: 0
@@ -4845,6 +4856,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8105277697266739458, guid: 67e53d75f9e298146b7c4b7847f6402e, type: 3}
+      propertyPath: spawnEnemies
+      value: 
+      objectReference: {fileID: 594847744}
     - target: {fileID: 8105277697266739580, guid: 67e53d75f9e298146b7c4b7847f6402e, type: 3}
       propertyPath: m_Name
       value: GameSupervisor

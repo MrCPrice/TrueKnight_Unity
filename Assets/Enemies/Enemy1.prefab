@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977f2a2e9bf5db947a3a7fa9bf5f6ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1
+  movementSpeed: 2
   maxSpeed: 10
   awarnessRange: 15
   player: {fileID: 4177999581547831572, guid: 8efd9417595cb604ea49c8ac1a841c24, type: 3}
